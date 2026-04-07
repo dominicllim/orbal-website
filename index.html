@@ -158,16 +158,44 @@
             font-weight: 500;
         }
         .why-pivot {
-            margin-top: 48px;
+            margin-top: 55px;
+            margin-bottom: 25px;
             font-family: 'Josefin Sans', sans-serif;
             font-size: clamp(1.4rem, 3vw, 1.9rem);
             font-weight: 600;
             color: var(--accent);
         }
 
+        /* ---- Info Tooltip ---- */
+        .info-tooltip {
+            position: relative;
+            cursor: help;
+            color: var(--accent);
+            font-size: 0.9em;
+            margin-left: 4px;
+        }
+        .info-tooltip-text {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--card-bg);
+            border: 1px solid rgba(180, 160, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            width: 300px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+        .info-tooltip:hover .info-tooltip-text { display: block; }
+
         /* ---- Privacy ---- */
         .privacy {
-            margin: 64px 0;
+            margin: 0 0 64px;
             padding: 64px 48px;
             background: linear-gradient(135deg, var(--card-bg) 0%, #1a152e 100%);
             border-radius: 32px;
@@ -204,7 +232,7 @@
 
         /* ---- Features Grid ---- */
         .features {
-            padding: 64px 0;
+            padding: 20px 0 64px;
             text-align: center;
         }
         .features h2 {
@@ -321,7 +349,7 @@
                 <p>Hewi's moving to Brooklyn Heights next month! Remind me to check in with her post-move.</p>
             </div>
             <div class="why-beat">
-                <p>Gurgeh loves hosting people for Catan but doesn't have the expansion. Potential gift idea?</p>
+                <p>Gurgeh loves hosting people for Catan but doesn't have the expansion pack. Potential gift idea?</p>
             </div>
             <div class="why-beat">
                 <p>Client dinner with Claude (VP, sales) and Jillian (product dev); new RFP next week, add more vol to proposal.</p>
@@ -333,7 +361,7 @@
     <!-- Privacy -->
     <section class="privacy" id="privacy">
         <h2>Private by design.</h2>
-        <p>On iPhone 15 Pro and newer, Orbal works <em>entirely</em> on-device. 100% privacy, guaranteed. Your notes never leave your phone. Your data, your property. Forever.</p>
+        <p>On iPhone 15 Pro and newer<span class="info-tooltip">&#9432;<span class="info-tooltip-text">Newer iPhones feature on-device models. Older iPhones still work great and use secure cloud processing - your notes are never stored or shared.</span></span>, Orbal works <em>entirely</em> on-device. 100% privacy, guaranteed. Your notes never leave your phone. Your data, your property. Forever.</p>
         <div class="privacy-pills">
             <span class="pill">On-device AI</span>
             <span class="pill">AES-256 encryption</span>
@@ -360,15 +388,15 @@
             </div>
             <div class="feature-card">
                 <h3>Your people.</h3>
-                <p>Browse everyone you know and see everything you've ever noted. Relationships that compound over time.</p>
+                <p>Browse everything you've noted to help you build relationships that compound.</p>
             </div>
             <div class="feature-card">
                 <h3>Tribe mode.</h3>
-                <p>Group notes by context - a dinner, a trip, a team offsite. Notes land on each person's page automatically.</p>
+                <p>Group notes by context - a dinner, a trip, a team offsite. Notes are split by person automatically.</p>
             </div>
             <div class="feature-card">
                 <h3>Event recognition.</h3>
-                <p>Never forget a birthday or anniversary. More event types coming.</p>
+                <p>Never forget a birthday or anniversary. More event type recognition coming soon!</p>
             </div>
         </div>
     </section>
