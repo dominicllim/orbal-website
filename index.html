@@ -3,169 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orbal | Meaningful Connections</title>
+    <title>orbal. | Meaningful relationships don't happen by accident</title>
+
+    <!-- SEO & Open Graph -->
+    <meta name="description" content="Orbal helps you remember every detail about the people who matter. Brain dump a conversation, and Orbal turns it into a personal encyclopedia of your relationships.">
+    <meta property="og:title" content="orbal. — meaningful relationships don't happen by accident">
+    <meta property="og:description" content="Remember every detail about the people who matter. Brain dump a conversation, Orbal does the rest.">
+    <meta property="og:image" content="https://orbal.us/hero.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://orbal.us">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="orbal. — meaningful relationships don't happen by accident">
+    <meta name="twitter:description" content="Remember every detail about the people who matter.">
+    <meta name="twitter:image" content="https://orbal.us/hero.jpg">
+
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg: #0f0f12;
             --card-bg: #1c1c21;
             --accent: #b4a0ff;
+            --accent-dim: rgba(180, 160, 255, 0.12);
             --text-main: #ffffff;
             --text-dim: #a1a1aa;
+            --text-mid: #d4d4d8;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg);
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
+            font-family: 'Inter', -apple-system, sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Hero Section */
-        header {
-            text-align: center;
-            padding: 100px 0 50px;
-        }
-
-        h1 {
-            font-size: 3rem;
+        h1, h2, h3 {
+            font-family: 'Josefin Sans', sans-serif;
             font-weight: 700;
-            margin-bottom: 20px;
             letter-spacing: -0.02em;
         }
 
-        .hero-img {
-            width: 100%;
-            max-width: 320px;
-            border-radius: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            margin: 40px 0;
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        .btn {
-            background-color: var(--accent);
-            color: #000;
-            padding: 16px 32px;
-            border-radius: 100px;
-            text-decoration: none;
+        /* ---- Nav ---- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+        }
+        .logo {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.5rem;
             font-weight: 700;
-            display: inline-block;
-            transition: transform 0.2s ease;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-main); }
+
+        /* ---- Hero ---- */
+        .hero {
+            padding: 48px 0 48px;
+        }
+        .hero-title {
+            margin-bottom: 28px;
+            position: relative;
+        }
+        .hero-title h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+        }
+        .hero-title .left {
+            text-align: left;
+            margin-bottom: -2px;
+        }
+        .hero-title .right {
+            text-align: right;
+            color: var(--accent);
+            position: relative;
+        }
+        .hero-title .right::before {
+            content: '';
+            position: absolute;
+            inset: -20px -40px;
+            background: radial-gradient(ellipse at center, rgba(180, 160, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .hero-bottom {
+            text-align: center;
+        }
+        .hero-sub {
+            color: var(--text-dim);
+            max-width: 500px;
+            margin: 0 auto 24px;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+        .app-store-badge {
+            height: 54px;
+            margin-top: 32px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .app-store-badge:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
+        /* ---- "Why" Section ---- */
+        .why {
+            padding: 32px 0 40px;
+            text-align: center;
         }
-
-        /* Feature Grid */
-        .grid {
+        .why-beats {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 80px 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .why-beat {
+            padding: 32px 24px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .why-beat p {
+            color: var(--text-mid);
+            font-size: 1.05rem;
+            line-height: 1.65;
+        }
+        .why-beat p strong {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+        .why-pivot {
+            margin-top: 48px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: clamp(1.4rem, 3vw, 1.9rem);
+            font-weight: 600;
+            color: var(--accent);
         }
 
+        /* ---- Privacy ---- */
+        .privacy {
+            margin: 64px 0;
+            padding: 64px 48px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, #1a152e 100%);
+            border-radius: 32px;
+            border: 1px solid rgba(180, 160, 255, 0.12);
+            text-align: center;
+        }
+        .privacy h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .privacy p {
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .privacy-pills {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+        .pill {
+            background: var(--accent-dim);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ---- Features Grid ---- */
+        .features {
+            padding: 64px 0;
+            text-align: center;
+        }
+        .features h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            margin-bottom: 48px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
         .feature-card {
             background: var(--card-bg);
-            padding: 40px;
-            border-radius: 24px;
-            text-align: center;
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 20px;
+            padding: 36px 28px;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(24px);
+            animation: fadeUp 0.6s ease forwards;
+            animation-play-state: paused;
         }
-
-        .feature-card img {
-            width: 100%;
-            max-width: 200px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
-
+        .feature-card.visible { animation-play-state: running; }
         .feature-card h3 {
-            color: var(--accent);
+            font-size: 1.25rem;
             margin-bottom: 10px;
         }
-
-        /* Privacy Section */
-        .privacy {
-            background: linear-gradient(180deg, var(--bg) 0%, #1a152e 100%);
-            padding: 80px 40px;
-            border-radius: 32px;
-            text-align: center;
-            border: 1px solid rgba(180, 160, 255, 0.2);
+        .feature-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+        /* Full-width last card when odd count */
+        .feature-card:last-child:nth-child(odd) {
+            grid-column: 1 / -1;
+            max-width: 462px;
+            justify-self: center;
         }
 
-        /* Footer */
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---- Bottom CTA ---- */
+        .bottom-cta {
+            text-align: center;
+            padding: 48px 0 32px;
+        }
+        .bottom-cta h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            margin-bottom: 24px;
+        }
+
+        /* ---- Footer ---- */
         footer {
             text-align: center;
-            padding: 60px 0;
+            padding: 40px 0 48px;
             color: var(--text-dim);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
+        footer a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.2s;
+        }
+        footer a:hover { color: var(--text-main); }
+        .footer-links { margin-bottom: 16px; }
 
+        /* ---- Responsive ---- */
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .grid { grid-template-columns: 1fr; }
+            .hero { padding: 40px 0 32px; }
+            .hero-title .left,
+            .hero-title .right {
+                text-align: center;
+            }
+            .why-beats { grid-template-columns: 1fr; max-width: 400px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .feature-card:last-child:nth-child(odd) { max-width: none; }
+            .privacy { padding: 48px 24px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>The way to more<br>meaningful connections.</h1>
-            <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto;">
-                Orbal helps you build a world with more meaningful relationships. 
-                Your connections are the pillars of your life—don't let the details slip away.
-            </p>
-            <img src="hero.jpg" alt="Orbal App Screenshot" class="hero-img">
-            <br>
-            <a href="#" class="btn">Download on App Store</a>
-        </header>
+<div class="container">
+    <nav>
+        <a href="#" class="logo">orbal<span>.</span></a>
+        <div class="nav-links">
+            <a href="#privacy">Privacy</a>
+            <a href="#features">Features</a>
+        </div>
+    </nav>
 
-        <section class="grid">
-            <div class="feature-card">
-                <img src="capture.jpg" alt="Capture">
-                <h3>Brain Dump</h3>
-                <p>Type a note. Orbal detects who it's about from natural language automatically.</p>
-            </div>
-            <div class="feature-card">
-                <img src="parsed.jpg" alt="Parsing">
-                <h3>Smart Parse</h3>
-                <p>Raw thoughts in, clean notes out. Key content is extracted and tidied for you.</p>
-            </div>
-            <div class="feature-card">
-                <img src="link.jpg" alt="Linking">
-                <h3>Auto-Match</h3>
-                <p>Notes are suggested to link to your contacts instantly. Total context, zero effort.</p>
-            </div>
-            <div class="feature-card">
-                <img src="people.jpg" alt="Relationships">
-                <h3>Compound Value</h3>
-                <p>Browse your people and see everything you've ever noted. Relationships that grow.</p>
-            </div>
-        </section>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-title">
+            <h1 class="left">Build your world,</h1>
+            <h1 class="right">one meaningful relationship at a time.</h1>
+        </div>
+        <div class="hero-bottom">
+            <a href="https://apps.apple.com/us/app/orbal/id6760022579">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store" class="app-store-badge">
+            </a>
+        </div>
+    </section>
 
-        <section class="privacy">
-            <h2 style="color: var(--accent);">PrivacyMaxxing</h2>
-            <p style="max-width: 700px; margin: 0 auto 30px;">
-                On iPhone 15 Pro and newer, Orbal runs <strong>entirely on-device</strong>. 
-                Your notes are encrypted with AES-256. We never train AI on your data, 
-                and we never sell your information. Period.
-            </p>
-        </section>
+    <!-- Why -->
+    <section class="why" id="why">
+        <div class="why-beats">
+            <div class="why-beat">
+                <p>Hewi's moving to Brooklyn Heights next month! Remind me to check in with her post-move.</p>
+            </div>
+            <div class="why-beat">
+                <p>Gurgeh loves hosting people for Catan but doesn't have the expansion. Potential gift idea?</p>
+            </div>
+            <div class="why-beat">
+                <p>Client dinner with Claude (VP, sales) and Jillian (product dev); new RFP next week, add more vol to proposal.</p>
+            </div>
+        </div>
+        <p class="why-pivot">Remember what matters.</p>
+    </section>
 
-        <footer>
-            <p>&copy; 2026 Orbal. Private by Design.</p>
-        </footer>
-    </div>
+    <!-- Privacy -->
+    <section class="privacy" id="privacy">
+        <h2>Private by design.</h2>
+        <p>On iPhone 15 Pro and newer, Orbal works <em>entirely</em> on-device. 100% privacy, guaranteed. Your notes never leave your phone. Your data, your property. Forever.</p>
+        <div class="privacy-pills">
+            <span class="pill">On-device AI</span>
+            <span class="pill">AES-256 encryption</span>
+            <span class="pill">100% on-device storage</span>
+            <span class="pill">Face ID lock</span>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <h2>How it works.</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Brain dump.</h3>
+                <p>Type or speak a stream of consciousness after any conversation. No forms, no structure - just talk.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Smart parse.</h3>
+                <p>AI extracts names, dates, and key details, then organizes them into clean, browsable notes.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Auto-match.</h3>
+                <p>Orbal detects who your note is about and suggests the right contact. One tap to link.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Your people.</h3>
+                <p>Browse everyone you know and see everything you've ever noted. Relationships that compound over time.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Tribe mode.</h3>
+                <p>Group notes by context - a dinner, a trip, a team offsite. Notes land on each person's page automatically.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Event recognition.</h3>
+                <p>Never forget a birthday or anniversary. More event types coming.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta">
+        <h2>Start remembering.</h2>
+        <a href="https://apps.apple.com/us/app/orbal/id6760022579">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store" class="app-store-badge">
+        </a>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+        </div>
+        <p>&copy; 2026 Orbal</p>
+    </footer>
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.feature-card').forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>

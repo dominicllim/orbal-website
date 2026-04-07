@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | orbal.</title>
+    <style>
+        :root {
+            --bg: #0f0f12;
+            --card-bg: #1c1c21;
+            --accent: #b4a0ff;
+            --text-main: #ffffff;
+            --text-dim: #a1a1aa;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            font-family: -apple-system, system-ui, sans-serif;
+            line-height: 1.7;
+            padding: 48px 24px;
+        }
+        .container { max-width: 720px; margin: 0 auto; }
+        h1 { font-size: 2rem; margin-bottom: 8px; }
+        .updated { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 40px; }
+        h2 { font-size: 1.25rem; color: var(--accent); margin-top: 36px; margin-bottom: 12px; }
+        p, li { color: var(--text-dim); margin-bottom: 12px; }
+        ul { padding-left: 20px; }
+        a { color: var(--accent); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: April 6, 2026</p>
+
+    <p>Orbal ("we", "us", "our") is committed to protecting your privacy. This policy explains what data we collect, how we use it, and the choices you have.</p>
+
+    <h2>1. Data That Stays on Your Device</h2>
+    <p>All notes, contacts, groups, and tribes you create in Orbal are stored locally on your device using Apple's SwiftData framework, encrypted at rest with AES-256 (NSFileProtectionComplete).</p>
+    <p>On iPhone 15 Pro and newer running iOS 26+, note parsing happens entirely on-device using Apple Foundation Models. Your note text never leaves your phone.</p>
+
+    <h2>2. Data Sent to Our Server</h2>
+    <p>On older devices (or if on-device parsing fails), your note text is routed through our secure proxy to Anthropic's API for parsing. The proxy does not log or store your note content. Specifically:</p>
+    <ul>
+        <li><strong>Note text</strong> — routed through our proxy to Anthropic's API for parsing, then discarded. The proxy never logs or stores your note content.</li>
+        <li><strong>Device ID</strong> — a random UUID generated on your device (not your Apple ID, IDFA, or IDFV). Used for rate limiting and abuse prevention. Not linked to your identity.</li>
+        <li><strong>Current date</strong> — sent alongside notes to help the AI resolve relative date references (e.g., "last Friday").</li>
+    </ul>
+
+    <h2>3. Contacts Access</h2>
+    <p>If you grant permission, Orbal reads given names, family names, and contact identifiers from your address book to suggest matches for your notes. We never access phone numbers, email addresses, or other contact details. Contact data is never sent to any server.</p>
+
+    <h2>4. iCloud Sync</h2>
+    <p>If you enable iCloud, your data syncs across your devices via Apple's CloudKit infrastructure. This data is governed by Apple's privacy policy. We do not have access to your iCloud data.</p>
+
+    <h2>5. What We Do NOT Do</h2>
+    <ul>
+        <li>We do not sell your data.</li>
+        <li>We do not serve ads.</li>
+        <li>We do not train AI models on your data.</li>
+        <li>We do not use analytics or tracking SDKs.</li>
+        <li>We do not collect your name, email, or Apple ID.</li>
+    </ul>
+
+    <h2>6. Microphone &amp; Voice Capture</h2>
+    <p>If you use voice capture, audio is recorded to a temporary file, transcribed on-device using WhisperKit, and immediately deleted. No audio data is stored or transmitted.</p>
+
+    <h2>7. Notifications</h2>
+    <p>Orbal may schedule local notifications for birthdays and anniversaries you've confirmed. These are scheduled entirely on-device and do not involve any server communication.</p>
+
+    <h2>8. Data Deletion</h2>
+    <p>You can delete any note, contact, tribe, or group at any time within the app. Deleted data is permanently removed from your device. If iCloud sync is enabled, deletion propagates to all synced devices.</p>
+
+    <h2>9. Third-Party Services</h2>
+    <p>Our proxy server forwards note text to <a href="https://www.anthropic.com/privacy">Anthropic</a> for AI parsing. Anthropic's usage policies govern how they handle data in transit. We have no other third-party integrations.</p>
+
+    <h2>10. Children</h2>
+    <p>Orbal is not directed at children under 13. We do not knowingly collect data from children.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this policy from time to time. Changes will be posted on this page with an updated date.</p>
+
+    <h2>12. Contact</h2>
+    <p>Questions or concerns? Reach us at <a href="mailto:dominic.lim@orbal.us">dominic.lim@orbal.us</a>.</p>
+</div>
+</body>
+</html>
